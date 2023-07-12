@@ -6,37 +6,38 @@
 //
 
 import UIKit
+import Kingfisher
 
 // MARK: - LaunchPresentation
 
 struct LaunchPresentation {
-    let flightNumber: Int
+    let flightNumber: String
     let missionName: String
     let missionID: [String]
     let upcoming: Bool
     let launchYear: String
-    let launchDateUnix: Int
+    let launchDateUnix: String
     let launchDateUTC: String
-    let launchDateLocal: Date
+    let launchDateLocal: String
     let isTentative: Bool
     let links: LinksPresentation
     let details: String
     let staticFireDateUTC: String
-    let staticFireDateUnix: Int
+    let staticFireDateUnix: String
 
     init(launch: Launch) {
-        flightNumber = launch.flightNumber ?? 0
-        missionName = launch.missionName ?? ""
+        flightNumber = launch.flightNumber.toString() ?? "Unknown"
+        missionName = launch.missionName ?? "Unknown"
         missionID = launch.missionID ?? []
         upcoming = launch.upcoming ?? false
-        launchYear = launch.launchYear ?? ""
-        launchDateUnix = launch.launchDateUnix ?? 0
+        launchYear = launch.launchYear ?? "Unknown"
+        launchDateUnix = launch.launchDateUnix.toString() ?? "Unknown"
         launchDateUTC = launch.launchDateUTC ?? ""
-        launchDateLocal = launch.launchDateLocal ?? Date()
+        launchDateLocal = launch.launchDateLocal ?? "Unknown"
         isTentative = launch.isTentative ?? false
-        details = launch.details ?? ""
-        staticFireDateUTC = launch.staticFireDateUTC ?? ""
-        staticFireDateUnix = launch.staticFireDateUnix ?? 0
+        details = launch.details ?? "Unknown"
+        staticFireDateUTC = launch.staticFireDateUTC ?? "Unknown"
+        staticFireDateUnix = launch.staticFireDateUnix.toString() ?? "Unknown"
         links = LinksPresentation(links: launch.links)
     }
 }
@@ -44,26 +45,11 @@ struct LaunchPresentation {
 // MARK: - LinksPresentation
 
 struct LinksPresentation {
-    let missionPatch: UIImage
-    let missionPatchSmall: UIImage
+    let missionPatch: String
+    let missionPatchSmall: String
 
     init(links: Links?) {
-        if let missionPatchURL = links?.missionPatch,
-           let missionPatchImageURL = URL(string: missionPatchURL),
-           let missionPatchImageData = try? Data(contentsOf: missionPatchImageURL),
-           let missionPatchImage = UIImage(data: missionPatchImageData) {
-            missionPatch = missionPatchImage
-        } else {
-            missionPatch = UIImage(named: "checkmark")!
-        }
-        //TODO - KF and Cache asdsafsd
-        if let missionPatchSmallURL = links?.missionPatchSmall,
-           let missionPatchSmallImageURL = URL(string: missionPatchSmallURL),
-           let missionPatchSmallImageData = try? Data(contentsOf: missionPatchSmallImageURL),
-           let missionPatchSmallImage = UIImage(data: missionPatchSmallImageData) {
-            missionPatchSmall = missionPatchSmallImage
-        } else {
-            missionPatchSmall = UIImage(named: "checkmark")!
-        }
+        missionPatch = links?.missionPatch ?? ""
+        missionPatchSmall = links?.missionPatchSmall ?? ""
     }
 }

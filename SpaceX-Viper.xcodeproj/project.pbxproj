@@ -21,6 +21,17 @@
 		8418D3002A5F3DCF00069121 /* LaunchListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D2FF2A5F3DCF00069121 /* LaunchListProtocols.swift */; };
 		8418D3032A5F42E100069121 /* Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3022A5F42E100069121 /* Launch.swift */; };
 		8418D3072A5F497800069121 /* LaunchPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3062A5F497800069121 /* LaunchPresentation.swift */; };
+		8418D30A2A5F515100069121 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8418D3092A5F515100069121 /* Kingfisher */; };
+		8418D30F2A5F574000069121 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D30E2A5F574000069121 /* NetworkService.swift */; };
+		8418D3112A5F576400069121 /* LaunchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3102A5F576400069121 /* LaunchService.swift */; };
+		8418D3132A5F57CB00069121 /* LaunchListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3122A5F57CB00069121 /* LaunchListInteractor.swift */; };
+		8418D3162A5F5D8E00069121 /* Optional+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3152A5F5D8E00069121 /* Optional+Extension.swift */; };
+		8418D3192A5F61CD00069121 /* LaunchDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3182A5F61CD00069121 /* LaunchDetailBuilder.swift */; };
+		8418D31B2A5F626000069121 /* LaunchDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D31A2A5F626000069121 /* LaunchDetailViewController.swift */; };
+		8418D31D2A5F629B00069121 /* LaunchDetailProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D31C2A5F629B00069121 /* LaunchDetailProtocols.swift */; };
+		8418D31F2A5F632000069121 /* LaunchDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D31E2A5F632000069121 /* LaunchDetailPresenter.swift */; };
+		8418D3262A5F69B900069121 /* LaunchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3252A5F69B900069121 /* LaunchListCell.swift */; };
+		8418D3282A5F6E5700069121 /* LaunchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3272A5F6E5700069121 /* LaunchListPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +70,16 @@
 		8418D2FF2A5F3DCF00069121 /* LaunchListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListProtocols.swift; sourceTree = "<group>"; };
 		8418D3022A5F42E100069121 /* Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Launch.swift; sourceTree = "<group>"; };
 		8418D3062A5F497800069121 /* LaunchPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPresentation.swift; sourceTree = "<group>"; };
+		8418D30E2A5F574000069121 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8418D3102A5F576400069121 /* LaunchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchService.swift; sourceTree = "<group>"; };
+		8418D3122A5F57CB00069121 /* LaunchListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListInteractor.swift; sourceTree = "<group>"; };
+		8418D3152A5F5D8E00069121 /* Optional+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Extension.swift"; sourceTree = "<group>"; };
+		8418D3182A5F61CD00069121 /* LaunchDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailBuilder.swift; sourceTree = "<group>"; };
+		8418D31A2A5F626000069121 /* LaunchDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailViewController.swift; sourceTree = "<group>"; };
+		8418D31C2A5F629B00069121 /* LaunchDetailProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailProtocols.swift; sourceTree = "<group>"; };
+		8418D31E2A5F632000069121 /* LaunchDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailPresenter.swift; sourceTree = "<group>"; };
+		8418D3252A5F69B900069121 /* LaunchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListCell.swift; sourceTree = "<group>"; };
+		8418D3272A5F6E5700069121 /* LaunchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8418D30A2A5F515100069121 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +171,7 @@
 		8418D2F12A5F39E600069121 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				8418D30D2A5F573400069121 /* Service */,
 				8418D3052A5F496600069121 /* Presentations */,
 				8418D3042A5F457E00069121 /* LaunchManager */,
 				8418D3012A5F42D100069121 /* DTOs */,
@@ -159,6 +182,8 @@
 		8418D2F22A5F39FC00069121 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8418D3222A5F683300069121 /* Views */,
+				8418D3172A5F61B800069121 /* LaunchDetail */,
 				8418D2FA2A5F3BE600069121 /* LaunchList */,
 			);
 			path = Scenes;
@@ -167,6 +192,7 @@
 		8418D2F32A5F3A0A00069121 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8418D3142A5F5D7A00069121 /* Extensions */,
 				8418D2CB2A5F2F7C00069121 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
@@ -187,6 +213,8 @@
 				8418D2FB2A5F3CF500069121 /* LaunchListBuilder.swift */,
 				8418D2FD2A5F3D5B00069121 /* LaunchListRouter.swift */,
 				8418D2FF2A5F3DCF00069121 /* LaunchListProtocols.swift */,
+				8418D3122A5F57CB00069121 /* LaunchListInteractor.swift */,
+				8418D3272A5F6E5700069121 /* LaunchListPresenter.swift */,
 			);
 			path = LaunchList;
 			sourceTree = "<group>";
@@ -214,6 +242,50 @@
 			path = Presentations;
 			sourceTree = "<group>";
 		};
+		8418D30D2A5F573400069121 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8418D30E2A5F574000069121 /* NetworkService.swift */,
+				8418D3102A5F576400069121 /* LaunchService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8418D3142A5F5D7A00069121 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8418D3152A5F5D8E00069121 /* Optional+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8418D3172A5F61B800069121 /* LaunchDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8418D3182A5F61CD00069121 /* LaunchDetailBuilder.swift */,
+				8418D31A2A5F626000069121 /* LaunchDetailViewController.swift */,
+				8418D31C2A5F629B00069121 /* LaunchDetailProtocols.swift */,
+				8418D31E2A5F632000069121 /* LaunchDetailPresenter.swift */,
+			);
+			path = LaunchDetail;
+			sourceTree = "<group>";
+		};
+		8418D3222A5F683300069121 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8418D3242A5F69A400069121 /* TableViewCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8418D3242A5F69A400069121 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8418D3252A5F69B900069121 /* LaunchListCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,6 +302,9 @@
 			dependencies = (
 			);
 			name = "SpaceX-Viper";
+			packageProductDependencies = (
+				8418D3092A5F515100069121 /* Kingfisher */,
+			);
 			productName = "SpaceX-Viper";
 			productReference = 8418D2BD2A5F2F7C00069121 /* SpaceX-Viper.app */;
 			productType = "com.apple.product-type.application";
@@ -302,6 +377,9 @@
 				Base,
 			);
 			mainGroup = 8418D2B42A5F2F7C00069121;
+			packageReferences = (
+				8418D3082A5F515100069121 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 8418D2BE2A5F2F7C00069121 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,15 +422,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8418D30F2A5F574000069121 /* NetworkService.swift in Sources */,
 				8418D2F92A5F3B2C00069121 /* AppRouter.swift in Sources */,
 				8418D2C52A5F2F7C00069121 /* LaunchListViewController.swift in Sources */,
+				8418D3132A5F57CB00069121 /* LaunchListInteractor.swift in Sources */,
 				8418D3032A5F42E100069121 /* Launch.swift in Sources */,
 				8418D3072A5F497800069121 /* LaunchPresentation.swift in Sources */,
 				8418D2C12A5F2F7C00069121 /* AppDelegate.swift in Sources */,
+				8418D31B2A5F626000069121 /* LaunchDetailViewController.swift in Sources */,
 				8418D2F72A5F3B0E00069121 /* AppContainer.swift in Sources */,
+				8418D31D2A5F629B00069121 /* LaunchDetailProtocols.swift in Sources */,
 				8418D3002A5F3DCF00069121 /* LaunchListProtocols.swift in Sources */,
+				8418D3192A5F61CD00069121 /* LaunchDetailBuilder.swift in Sources */,
+				8418D3282A5F6E5700069121 /* LaunchListPresenter.swift in Sources */,
+				8418D3112A5F576400069121 /* LaunchService.swift in Sources */,
+				8418D31F2A5F632000069121 /* LaunchDetailPresenter.swift in Sources */,
+				8418D3262A5F69B900069121 /* LaunchListCell.swift in Sources */,
 				8418D2FC2A5F3CF500069121 /* LaunchListBuilder.swift in Sources */,
 				8418D2FE2A5F3D5B00069121 /* LaunchListRouter.swift in Sources */,
+				8418D3162A5F5D8E00069121 /* Optional+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,6 +772,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8418D3082A5F515100069121 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8418D3092A5F515100069121 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8418D3082A5F515100069121 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8418D2B52A5F2F7C00069121 /* Project object */;
 }

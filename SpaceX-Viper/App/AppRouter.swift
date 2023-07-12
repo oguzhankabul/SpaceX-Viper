@@ -16,7 +16,7 @@ final class AppRouter {
     }
     
     func start() {
-        let viewController = LaunchListViewController() //asdsafsd
+        let viewController = LaunchListBuilder.make()
         let navigationController = UINavigationController(rootViewController: viewController)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()

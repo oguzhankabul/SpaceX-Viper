@@ -11,12 +11,15 @@ import Foundation
 // MARK: - Interactor
 protocol LaunchListInteractorProtocol: AnyObject {
     var delegate: LaunchListInteractorDelegate? { get set }
+    func load()
+    func selectLaunch(at index: Int)
 }
 
 enum LaunchListInteractorOutput {
     case setLoading(Bool)
-    case showLaunchList([Launch])
-    case showLaunchDetail(Launch)
+    case showLaunchList([LaunchPresentation])
+    case showLaunchDetail(LaunchPresentation)
+    case showError(LaunchServiceError)
 }
 
 protocol LaunchListInteractorDelegate: AnyObject {
@@ -33,19 +36,19 @@ protocol LaunchListPresenterProtocol: AnyObject {
 enum LaunchListPresenterOutput {
     case updateTitle(String)
     case setLoading(Bool)
-    case showLaunchList([Launch])
+    case showLaunchList([LaunchPresentation])
 }
 
 // MARK: - View
 
-protocol LaunchListViewProtocol: AnyObject {
+protocol LaunchListViewControllerProtocol: AnyObject {
     func handleOutput(_ output: LaunchListPresenterOutput)
 }
 
 // MARK: - Router
 
 enum LaunchListRoute {
-    case detail(Launch)
+    case detail(LaunchPresentation)
 }
 
 protocol LaunchListRouterProtocol: AnyObject {

@@ -8,9 +8,6 @@
 import Foundation
 
 // MARK: - Launch
-
-//   let welcome = try? JSONDecoder().decode(Welcome.self, from: jsonData) asdsafsd sil bu satırı
-// MARK: - Launch
 struct Launch: Codable {
     let flightNumber: Int?
     let missionName: String?
@@ -19,12 +16,11 @@ struct Launch: Codable {
     let launchYear: String?
     let launchDateUnix: Int?
     let launchDateUTC: String?
-    let launchDateLocal: Date?
+    let launchDateLocal: String?
     let isTentative: Bool?
     let links: Links?
     let details, staticFireDateUTC: String?
     let staticFireDateUnix: Int?
-    let timeline: [String: Int?]?
 
     enum CodingKeys: String, CodingKey {
         case flightNumber = "flight_number"
@@ -39,7 +35,6 @@ struct Launch: Codable {
         case links, details
         case staticFireDateUTC = "static_fire_date_utc"
         case staticFireDateUnix = "static_fire_date_unix"
-        case timeline
     }
 }
 
