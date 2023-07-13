@@ -12,12 +12,10 @@ struct Launch: Codable {
     let flightNumber: Int?
     let missionName: String?
     let missionID: [String]?
-    let upcoming: Bool?
     let launchYear: String?
     let launchDateUnix: Int?
     let launchDateUTC: String?
     let launchDateLocal: String?
-    let isTentative: Bool?
     let links: Links?
     let details, staticFireDateUTC: String?
     let staticFireDateUnix: Int?
@@ -26,12 +24,10 @@ struct Launch: Codable {
         case flightNumber = "flight_number"
         case missionName = "mission_name"
         case missionID = "mission_id"
-        case upcoming
         case launchYear = "launch_year"
         case launchDateUnix = "launch_date_unix"
         case launchDateUTC = "launch_date_utc"
         case launchDateLocal = "launch_date_local"
-        case isTentative = "is_tentative"
         case links, details
         case staticFireDateUTC = "static_fire_date_utc"
         case staticFireDateUnix = "static_fire_date_unix"

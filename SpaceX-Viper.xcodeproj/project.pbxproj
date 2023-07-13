@@ -32,6 +32,7 @@
 		8418D31F2A5F632000069121 /* LaunchDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D31E2A5F632000069121 /* LaunchDetailPresenter.swift */; };
 		8418D3262A5F69B900069121 /* LaunchListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3252A5F69B900069121 /* LaunchListCell.swift */; };
 		8418D3282A5F6E5700069121 /* LaunchListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D3272A5F6E5700069121 /* LaunchListPresenter.swift */; };
+		8418D32B2A5F7E6800069121 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8418D32A2A5F7E6800069121 /* DetailCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		8418D31E2A5F632000069121 /* LaunchDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailPresenter.swift; sourceTree = "<group>"; };
 		8418D3252A5F69B900069121 /* LaunchListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListCell.swift; sourceTree = "<group>"; };
 		8418D3272A5F6E5700069121 /* LaunchListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchListPresenter.swift; sourceTree = "<group>"; };
+		8418D32A2A5F7E6800069121 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +175,6 @@
 			children = (
 				8418D30D2A5F573400069121 /* Service */,
 				8418D3052A5F496600069121 /* Presentations */,
-				8418D3042A5F457E00069121 /* LaunchManager */,
 				8418D3012A5F42D100069121 /* DTOs */,
 			);
 			path = DataProvider;
@@ -182,7 +183,6 @@
 		8418D2F22A5F39FC00069121 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8418D3222A5F683300069121 /* Views */,
 				8418D3172A5F61B800069121 /* LaunchDetail */,
 				8418D2FA2A5F3BE600069121 /* LaunchList */,
 			);
@@ -192,6 +192,7 @@
 		8418D2F32A5F3A0A00069121 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8418D3222A5F683300069121 /* Views */,
 				8418D3142A5F5D7A00069121 /* Extensions */,
 				8418D2CB2A5F2F7C00069121 /* LaunchScreen.storyboard */,
 			);
@@ -225,13 +226,6 @@
 				8418D3022A5F42E100069121 /* Launch.swift */,
 			);
 			path = DTOs;
-			sourceTree = "<group>";
-		};
-		8418D3042A5F457E00069121 /* LaunchManager */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LaunchManager;
 			sourceTree = "<group>";
 		};
 		8418D3052A5F496600069121 /* Presentations */ = {
@@ -273,6 +267,7 @@
 		8418D3222A5F683300069121 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8418D3292A5F7E5300069121 /* CollectionViewCells */,
 				8418D3242A5F69A400069121 /* TableViewCells */,
 			);
 			path = Views;
@@ -284,6 +279,14 @@
 				8418D3252A5F69B900069121 /* LaunchListCell.swift */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		8418D3292A5F7E5300069121 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				8418D32A2A5F7E6800069121 /* DetailCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -425,6 +428,7 @@
 				8418D30F2A5F574000069121 /* NetworkService.swift in Sources */,
 				8418D2F92A5F3B2C00069121 /* AppRouter.swift in Sources */,
 				8418D2C52A5F2F7C00069121 /* LaunchListViewController.swift in Sources */,
+				8418D32B2A5F7E6800069121 /* DetailCollectionViewCell.swift in Sources */,
 				8418D3132A5F57CB00069121 /* LaunchListInteractor.swift in Sources */,
 				8418D3032A5F42E100069121 /* Launch.swift in Sources */,
 				8418D3072A5F497800069121 /* LaunchPresentation.swift in Sources */,

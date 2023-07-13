@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class LaunchListCell: UITableViewCell {
     
@@ -18,20 +19,25 @@ class LaunchListCell: UITableViewCell {
     
     private lazy var flightNumberLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
     private lazy var missionNameLabel: UILabel = {
         let label = UILabel()
+        label.font = .boldSystemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
         return label
     }()
     
     private lazy var detailsLabel: UILabel = {
         let label = UILabel()
+        label.font = .italicSystemFont(ofSize: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = 3
         return label
     }()
     
@@ -61,9 +67,10 @@ class LaunchListCell: UITableViewCell {
         // Define constraints
         NSLayoutConstraint.activate([
             launchImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            launchImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            launchImageView.heightAnchor.constraint(equalToConstant: 80),
-            launchImageView.widthAnchor.constraint(equalToConstant: 80),
+            launchImageView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 8),
+            launchImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -8),
+            launchImageView.widthAnchor.constraint(equalToConstant: 88),
+            launchImageView.heightAnchor.constraint(equalTo: launchImageView.widthAnchor),
             
             labelsStackView.leadingAnchor.constraint(equalTo: launchImageView.trailingAnchor, constant: 16),
             labelsStackView.topAnchor.constraint(equalTo: topAnchor, constant: 8),
@@ -72,20 +79,24 @@ class LaunchListCell: UITableViewCell {
         ])
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.contentView.layoutIfNeeded()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        flightNumberLabel.text = nil
+        missionNameLabel.text = nil
+        detailsLabel.text = nil
+        launchImageView.image = nil
+    }
+    
     func configureCell(launch: LaunchPresentation) {
         flightNumberLabel.text = "Flight Number: \(launch.flightNumber)"
         missionNameLabel.text = launch.missionName
         detailsLabel.text = launch.details
-        
-        if let url = URL(string: launch.links.missionPatch) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    DispatchQueue.main.async {
-                        self.launchImageView.image = UIImage(data: data)
-                    }
-                }
-            }
-        }
+        launchImageView.kf.setImage(with: launch.links.missionPatchSmall, placeholder: UIImage.checkmark)
     }
 }
 
