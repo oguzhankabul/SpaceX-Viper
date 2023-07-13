@@ -23,6 +23,7 @@ struct LaunchPresentation {
     let staticFireDateUTC: String
     let staticFireDateUnix: String
     let detailPropertyList: [String]
+    let launchYearInt: Int?
 
     init(launch: Launch) {
         flightNumber = launch.flightNumber.toString() ?? "Unknown"
@@ -47,6 +48,7 @@ struct LaunchPresentation {
             "Static Fire Date UTC: \(staticFireDateUTC)",
             "Static Fire Date Unix: \(staticFireDateUnix)"
         ]
+        launchYearInt = launch.launchYear.toInt()
     }
 }
 

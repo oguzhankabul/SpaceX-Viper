@@ -24,12 +24,20 @@ final class LaunchListPresenter: LaunchListPresenterProtocol {
     }
     
     func load() {
-        view.handleOutput(.updateTitle("asdsafsd"))
+        view.handleOutput(.updateTitle("Launches"))
         interactor.load()
     }
     
-    func selectLaunch(at index: Int) {
-        interactor.selectLaunch(at: index)
+    func filterByLaunchYear(_ year: Int) {
+        if year == 0 {
+            interactor.getAllLaunches()
+        } else {
+            interactor.filterLaunchesByYear(year)
+        }
+    }
+    
+    func selectLaunch(launchPresentation: LaunchPresentation) {
+        interactor.selectLaunch(launchPresentation: launchPresentation)
     }
 }
 
@@ -46,6 +54,8 @@ extension LaunchListPresenter: LaunchListInteractorDelegate {
         case .showError(let launchServiceError):
             print(launchServiceError.localizedDescription)
           // TODO show error  view.showError(launchServiceError.localizedDescription)
+        case .updatePickerData(let years):
+            view.handleOutput(.updatePickerData(years))
         }
     }
 }

@@ -8,6 +8,7 @@
 import Foundation
 
 extension Optional where Wrapped == Int {
+    
     func toString() -> String? {
         if let value = self {
             return String(value)
@@ -24,6 +25,15 @@ extension Optional where Wrapped == Date {
             return dateFormatter.string(from: date)
         }
         return nil
+    }
+}
+
+extension Optional where Wrapped == String {
+    func toInt() -> Int? {
+        guard let stringValue = self else {
+            return nil
+        }
+        return Int(stringValue)
     }
 }
 

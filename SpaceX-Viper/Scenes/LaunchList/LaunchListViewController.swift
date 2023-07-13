@@ -10,7 +10,25 @@ import UIKit
 class LaunchListViewController: UIViewController, LaunchListViewControllerProtocol {
     
     private var launchList: [LaunchPresentation] = []
+    private var pickerData: [Int] = []
     var presenter: LaunchListPresenterProtocol!
+    
+    private lazy var yearPicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.delegate = self
+        picker.dataSource = self
+        picker.backgroundColor = .white
+        picker.isHidden = true
+        return picker
+    }()
+    
+    private lazy var pickerButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Select Year", for: .normal)
+        button.addTarget(self, action: #selector(didTapPickerButton), for: .touchUpInside)
+        return button
+    }()
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -31,10 +49,19 @@ class LaunchListViewController: UIViewController, LaunchListViewControllerProtoc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(tableView)
-        view.addSubview(activityIndicator)
+        [tableView, activityIndicator, yearPicker].forEach({ view.addSubview($0) })
         setupConstraints()
         presenter.load()
+        
+        let rightBarButtonItem = UIBarButtonItem(customView: pickerButton)
+        navigationItem.rightBarButtonItem = rightBarButtonItem
+    }
+    
+    @objc func didTapPickerButton() {
+        yearPicker.isHidden = !yearPicker.isHidden
+        if !yearPicker.isHidden {
+            yearPicker.reloadAllComponents()
+        }
     }
     
     private func setupConstraints() {
@@ -45,7 +72,12 @@ class LaunchListViewController: UIViewController, LaunchListViewControllerProtoc
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            yearPicker.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            yearPicker.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            yearPicker.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            yearPicker.heightAnchor.constraint(equalToConstant: 180)
         ])
     }
     
@@ -64,6 +96,8 @@ class LaunchListViewController: UIViewController, LaunchListViewControllerProtoc
                 activityIndicator.stopAnimating()
                 tableView.isHidden = false
             }
+        case .updatePickerData(let years):
+            pickerData = [0] + years
         }
     }
 }
@@ -82,10 +116,34 @@ extension LaunchListViewController: UITableViewDataSource {
 
 extension LaunchListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter.selectLaunch(at: indexPath.row)
+        let selectedLaunch = launchList[indexPath.row]
+        presenter.selectLaunch(launchPresentation: selectedLaunch)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+extension LaunchListViewController: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row] == 0 ? "All" : "\(pickerData[row])"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedYear = pickerData[row]
+            presenter.filterByLaunchYear(selectedYear)
+    }
+}
+
+extension LaunchListViewController: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
     }
 }

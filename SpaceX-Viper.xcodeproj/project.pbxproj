@@ -183,8 +183,8 @@
 		8418D2F22A5F39FC00069121 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8418D3172A5F61B800069121 /* LaunchDetail */,
 				8418D2FA2A5F3BE600069121 /* LaunchList */,
+				8418D3172A5F61B800069121 /* LaunchDetail */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

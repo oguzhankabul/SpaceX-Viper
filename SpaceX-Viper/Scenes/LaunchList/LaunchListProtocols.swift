@@ -12,7 +12,9 @@ import Foundation
 protocol LaunchListInteractorProtocol: AnyObject {
     var delegate: LaunchListInteractorDelegate? { get set }
     func load()
-    func selectLaunch(at index: Int)
+    func selectLaunch(launchPresentation: LaunchPresentation)
+    func filterLaunchesByYear(_ year: Int)
+    func getAllLaunches()
 }
 
 enum LaunchListInteractorOutput {
@@ -20,6 +22,7 @@ enum LaunchListInteractorOutput {
     case showLaunchList([LaunchPresentation])
     case showLaunchDetail(LaunchPresentation)
     case showError(LaunchServiceError)
+    case updatePickerData([Int])
 }
 
 protocol LaunchListInteractorDelegate: AnyObject {
@@ -30,13 +33,15 @@ protocol LaunchListInteractorDelegate: AnyObject {
 
 protocol LaunchListPresenterProtocol: AnyObject {
     func load()
-    func selectLaunch(at index: Int)
+    func selectLaunch(launchPresentation: LaunchPresentation)
+    func filterByLaunchYear(_ year: Int)
 }
 
 enum LaunchListPresenterOutput {
     case updateTitle(String)
     case setLoading(Bool)
     case showLaunchList([LaunchPresentation])
+    case updatePickerData([Int])
 }
 
 // MARK: - View

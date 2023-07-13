@@ -27,6 +27,9 @@ final class LaunchListInteractor: LaunchListInteractorProtocol {
                 switch result {
                 case .success(let launches):
                     self.launchPresentationList = launches.map{( LaunchPresentation(launch: $0) )}
+                    let yearsSet = Set(self.launchPresentationList.compactMap { $0.launchYearInt })
+                    let sortedYears = Array(yearsSet).sorted()
+                    self.delegate?.handleOutput(.updatePickerData(sortedYears))
                     self.delegate?.handleOutput(.showLaunchList(self.launchPresentationList))
                 case .failure(let error):
                     self.delegate?.handleOutput(.showError(error))
@@ -35,8 +38,16 @@ final class LaunchListInteractor: LaunchListInteractorProtocol {
         }
     }
     
-    func selectLaunch(at index: Int) {
-        let launchPresentation = launchPresentationList[index]
+    func filterLaunchesByYear(_ year: Int) {
+        let filteredLaunches = launchPresentationList.filter { $0.launchYearInt == year }
+        delegate?.handleOutput(.showLaunchList(filteredLaunches))
+    }
+    
+    func getAllLaunches() {
+        delegate?.handleOutput(.showLaunchList(launchPresentationList))
+    }
+    
+    func selectLaunch(launchPresentation: LaunchPresentation) {
         delegate?.handleOutput(.showLaunchDetail(launchPresentation))
     }
 }
